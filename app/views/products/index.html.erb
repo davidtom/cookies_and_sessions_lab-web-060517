@@ -1,0 +1,12 @@
+<h3>Items in Cart:</h3>
+<% cart.each do |item| %>
+<p> <%= item %> </p>
+<% end  %>
+
+<%= form_tag "/", method: "post" do %>
+  <label>Product Name:</label><br>
+  <input type="text" id="product" name="product[name]"><br>
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="submit" value="add to cart">
+<% end %>
